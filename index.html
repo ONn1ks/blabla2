@@ -27,8 +27,9 @@
         <p class="tag">киноаналитика</p>
         <h1>Стоит ли смотреть этот фильм или сериал?</h1>
         <p class="subtitle">
-          Введите название, и мы смоделируем оценки с трёх популярных площадок,
-          чтобы решить, заслуживает ли тайтл вашего вечера.
+          Введите название, и мы подтянем рейтинги IMDb, Rotten Tomatoes и
+          Metacritic через OMDb API, чтобы решить, заслуживает ли тайтл вашего
+          вечера.
         </p>
       </header>
 
@@ -46,6 +47,37 @@
           </div>
         </label>
         <p class="hint">Нажмите Enter или кнопку, чтобы запустить анализ.</p>
+
+        <details class="api-settings" id="apiSettings">
+          <summary>Подключить ключ OMDb</summary>
+          <p>
+            Получите бесплатный ключ на
+            <a
+              href="https://www.omdbapi.com/apikey.aspx"
+              target="_blank"
+              rel="noreferrer noopener"
+              >omdbapi.com</a
+            >
+            и сохраните его здесь — после этого бот подтянет оценки IMDb,
+            Rotten Tomatoes и Metacritic.
+          </p>
+          <div class="input-control input-control--compact">
+            <input
+              id="apiKeyInput"
+              type="text"
+              placeholder="Ваш ключ OMDb"
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <button id="saveKeyBtn" type="button">Сохранить ключ</button>
+          </div>
+          <button id="clearKeyBtn" type="button" class="link-button">
+            Удалить сохранённый ключ
+          </button>
+          <p class="hint">Ключ хранится только в вашем браузере.</p>
+        </details>
+
+        <p class="status-message" id="statusMessage" role="status" hidden></p>
       </section>
 
       <section class="results" id="results" aria-live="polite" hidden>
@@ -66,16 +98,22 @@
         <div class="empty-card">
           <h2>Пока без киноплана</h2>
           <p>
-            Расскажите боту, что хотите посмотреть, и он сравнит оценки трёх
-            источников, чтобы подсказать, стоит ли тратить время.
+            Расскажите боту, что хотите посмотреть, и он подтянет рейтинги IMDb,
+            Rotten Tomatoes и Metacritic, чтобы подсказать, стоит ли тратить
+            время.
           </p>
         </div>
       </section>
 
       <footer class="footer">
         <p>
-          *Демонстрационный прототип. Для тайтлов вне подборки оценки генерируются
-          алгоритмически, поэтому используйте результат как ориентир.
+          *Для загрузки данных нужен бесплатный ключ OMDb
+          (<a
+            href="https://www.omdbapi.com/apikey.aspx"
+            target="_blank"
+            rel="noreferrer noopener"
+            >omdbapi.com/apikey.aspx</a
+          >). Ключ хранится локально в браузере, сервер не требуется.
         </p>
       </footer>
     </main>

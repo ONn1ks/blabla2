@@ -217,6 +217,147 @@ body::before {
   font-size: 0.85rem;
 }
 
+.api-settings {
+  margin-top: 20px;
+  padding: 18px 20px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(12, 16, 35, 0.72);
+  backdrop-filter: blur(14px);
+  color: rgba(255, 255, 255, 0.86);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.api-settings summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  list-style: none;
+  position: relative;
+  padding-right: 28px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.api-settings summary::-webkit-details-marker {
+  display: none;
+}
+
+.api-settings summary::after {
+  content: "";
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid rgba(255, 255, 255, 0.65);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.65);
+  transform: translateY(-60%) rotate(45deg);
+  transition: transform 0.25s ease;
+}
+
+.api-settings[open] summary::after {
+  transform: translateY(-20%) rotate(225deg);
+}
+
+.api-settings summary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(100, 124, 255, 0.35);
+  border-radius: 14px;
+}
+
+.api-settings p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.55;
+}
+
+.api-settings a {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+.api-settings a:hover {
+  color: #d4dcff;
+}
+
+.input-control--compact {
+  margin-top: 4px;
+}
+
+.input-control--compact input {
+  height: 44px;
+}
+
+.input-control--compact button {
+  height: 44px;
+  padding: 0 18px;
+  box-shadow: 0 16px 32px rgba(100, 124, 255, 0.35);
+}
+
+.input-control button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+  box-shadow: none;
+  transform: none;
+}
+
+.link-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
+  text-decoration: underline;
+  width: fit-content;
+  border-radius: 14px;
+}
+
+.link-button:hover {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.link-button:focus-visible {
+  outline: none;
+  text-decoration: none;
+  box-shadow: 0 0 0 3px rgba(100, 124, 255, 0.35);
+  background: rgba(100, 124, 255, 0.12);
+}
+
+.status-message {
+  margin-top: 20px;
+  padding: 14px 18px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid transparent;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.status-message--info {
+  background: rgba(100, 124, 255, 0.15);
+  border-color: rgba(100, 124, 255, 0.38);
+  color: #dde3ff;
+}
+
+.status-message--error {
+  background: rgba(255, 93, 122, 0.18);
+  border-color: rgba(255, 93, 122, 0.42);
+  color: #ffd9e1;
+}
+
+.status-message--success {
+  background: rgba(54, 230, 164, 0.16);
+  border-color: rgba(54, 230, 164, 0.38);
+  color: #d6ffef;
+}
+
 .results {
   display: flex;
   flex-direction: column;
@@ -394,6 +535,19 @@ body::before {
 
   .input-control button {
     margin-top: 4px;
+  }
+
+  .api-settings {
+    padding: 16px;
+  }
+
+  .input-control--compact {
+    gap: 10px;
+  }
+
+  .input-control--compact button {
+    width: 100%;
+    margin-top: 8px;
   }
 }
 

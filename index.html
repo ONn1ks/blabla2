@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Стоит ли смотреть?</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="background-shape background-shape--one"></div>
+    <div class="background-shape background-shape--two"></div>
+    <main class="app">
+      <header class="hero">
+        <p class="tag">киноаналитика</p>
+        <h1>Стоит ли смотреть этот фильм или сериал?</h1>
+        <p class="subtitle">
+          Введите название, и мы смоделируем оценки с трёх популярных площадок,
+          чтобы решить, заслуживает ли тайтл вашего вечера.
+        </p>
+      </header>
+
+      <section class="search">
+        <label class="input-wrapper" for="titleInput">
+          <span class="input-label">Название</span>
+          <div class="input-control">
+            <input
+              id="titleInput"
+              type="text"
+              placeholder="Например: Интерстеллар"
+              autocomplete="off"
+            />
+            <button id="analyzeBtn" type="button">Проанализировать</button>
+          </div>
+        </label>
+        <p class="hint">Нажмите Enter или кнопку, чтобы запустить анализ.</p>
+      </section>
+
+      <section class="results" id="results" aria-live="polite" hidden>
+        <div class="summary">
+          <div class="summary-header">
+            <span class="summary-title">Средний рейтинг</span>
+            <span class="summary-value" id="averageScore">0.0</span>
+          </div>
+          <p class="summary-description" id="summaryDescription"></p>
+        </div>
+
+        <div class="cards" id="ratingCards"></div>
+
+        <div class="verdict" id="verdict">Выберите тайтл, чтобы узнать вердикт.</div>
+      </section>
+
+      <section class="empty" id="emptyState">
+        <div class="empty-card">
+          <h2>Пока без киноплана</h2>
+          <p>
+            Расскажите боту, что хотите посмотреть, и он сравнит оценки трёх
+            источников, чтобы подсказать, стоит ли тратить время.
+          </p>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <p>
+          *Демонстрационный прототип. Для тайтлов вне подборки оценки генерируются
+          алгоритмически, поэтому используйте результат как ориентир.
+        </p>
+      </footer>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

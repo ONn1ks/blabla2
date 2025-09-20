@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Стоит ли смотреть?</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="background-shape background-shape--one"></div>
+    <div class="background-shape background-shape--two"></div>
+    <main class="app">
+      <header class="hero">
+        <p class="tag">киноаналитика</p>
+        <h1>Стоит ли смотреть этот фильм или сериал?</h1>
+        <p class="subtitle">
+          Введите название, и мы подтянем рейтинги IMDb, Rotten Tomatoes и
+          Metacritic через OMDb API, чтобы решить, заслуживает ли тайтл вашего
+          вечера.
+        </p>
+      </header>
+
+      <section class="search">
+        <label class="input-wrapper" for="titleInput">
+          <span class="input-label">Название</span>
+          <div class="input-control">
+            <input
+              id="titleInput"
+              type="text"
+              placeholder="Например: Интерстеллар"
+              autocomplete="off"
+            />
+            <button id="analyzeBtn" type="button">Проанализировать</button>
+          </div>
+        </label>
+        <p class="hint">Нажмите Enter или кнопку, чтобы запустить анализ.</p>
+
+        <details class="api-settings" id="apiSettings">
+          <summary>Подключить ключ OMDb</summary>
+          <p>
+            Получите бесплатный ключ на
+            <a
+              href="https://www.omdbapi.com/apikey.aspx"
+              target="_blank"
+              rel="noreferrer noopener"
+              >omdbapi.com</a
+            >
+            и сохраните его здесь — после этого бот подтянет оценки IMDb,
+            Rotten Tomatoes и Metacritic.
+          </p>
+          <div class="input-control input-control--compact">
+            <input
+              id="apiKeyInput"
+              type="text"
+              placeholder="Ваш ключ OMDb"
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <button id="saveKeyBtn" type="button">Сохранить ключ</button>
+          </div>
+          <button id="clearKeyBtn" type="button" class="link-button">
+            Удалить сохранённый ключ
+          </button>
+          <p class="hint">Ключ хранится только в вашем браузере.</p>
+        </details>
+
+        <p class="status-message" id="statusMessage" role="status" hidden></p>
+      </section>
+
+      <section class="results" id="results" aria-live="polite" hidden>
+        <div class="summary">
+          <div class="summary-header">
+            <span class="summary-title">Средний рейтинг</span>
+            <span class="summary-value" id="averageScore">0.0</span>
+          </div>
+          <p class="summary-description" id="summaryDescription"></p>
+        </div>
+
+        <div class="cards" id="ratingCards"></div>
+
+        <div class="verdict" id="verdict">Выберите тайтл, чтобы узнать вердикт.</div>
+      </section>
+
+      <section class="empty" id="emptyState">
+        <div class="empty-card">
+          <h2>Пока без киноплана</h2>
+          <p>
+            Расскажите боту, что хотите посмотреть, и он подтянет рейтинги IMDb,
+            Rotten Tomatoes и Metacritic, чтобы подсказать, стоит ли тратить
+            время.
+          </p>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <p>
+          *Для загрузки данных нужен бесплатный ключ OMDb
+          (<a
+            href="https://www.omdbapi.com/apikey.aspx"
+            target="_blank"
+            rel="noreferrer noopener"
+            >omdbapi.com/apikey.aspx</a
+          >). Ключ хранится локально в браузере, сервер не требуется.
+        </p>
+      </footer>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
